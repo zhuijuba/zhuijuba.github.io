@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="referrer" content="never">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="applicable-device" content="pc,mobile">
 <title>追剧吧自留地</title>
 <script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js?v=3.3.1"></script>
     <style>
@@ -28,7 +31,6 @@
     </style>
 </head>
 <body>
-<div id="xs" style="display:none;">
     <h1>追剧吧网址发布页</h1>
     <div class="box">
         <p class="tips">为了防止失联，网址打不开<span class="high_light" style="font-size: 15px; font-weight:bolder;">请收藏或截图本页面</span><br />
@@ -37,15 +39,9 @@
             <li><a href="https://zhuijuba.tv" target="_blank">官方地址①：zhuijuba.tv</a></li>
             <li><a href="https://zhuijuba.cc" target="_blank">官方地址②：zhuijuba.cc</a></li>
             <li><a href="https://zhuijuba.app" target="_blank">官方地址③：zhuijuba.app</a></li>
-			<li><a href="javascript:yc(1);" class="app" >临时观影线路地址</a></li>
             <li><a href="javascript:yc();" class="app" >👉下载追剧吧客户端👈</a></li>
         </ul>
 		<div class="down_box" id="gy_btn">
-            <ul class="link_list">
-			<li><a href="http://zjdy1.com"  class="gy" target="_blank">观影线路1：zjdy1.com&emsp;<span speed="http://zjdy1.com">(测速中)</span></a></li>
-            <li><a href="http://zjdy1.com" class="gy" target="_blank">观影线路2：zjdy2.com&emsp;<span speed="http://zjdy2.com">(测速中)</span></a></li>
-            <li><a href="http://zjdy2.com" class="gy" target="_blank">观影线路2：zjdy3.com&emsp;<span speed="http://zjdy3.com">(测速中)</span></a></li>
-            </ul>
         </div>
         <div class="down_box" id="app_btn">
             <div class="la">
@@ -60,111 +56,16 @@
             <div class="la">
                 <div class="lab">
                     <b>苹果版安装</b>
-                    <p>第1步：复制本页网址  <strong class="high_light">https://zhuijuba.app</strong></p>
+                    <p>第1步：复制网址&emsp; <strong class="high_light" style="font-size: 17px; font-weight:bolder;">zhuijuba.me</strong></p>
                     <p>第2步：打开手机上的<img src="https://imgsrc.baidu.com/tieba/pic/item/9345d688d43f8794fded4c1f941b0ef41bd53af4.jpg" class="icon" />Safari浏览器，并访问以上网址</p>
-                    <p>第3步：点击浏览器下方<img src="https://imgsrc.baidu.com/tieba/pic/item/7a899e510fb30f2432f1e8328e95d143ad4b0393.jpg" class="icon" />图标，并选择菜单中的【添加到主屏幕】</p>
-                    <p>添加到主屏幕后，就会在你手机桌面多一个追剧吧的APP图标啦！</p>
                 </div>
             </div>
         </div>
     </div>
 	<br>
 	<br>
- </div>
 <script>
-function yc(id) {
-var div1 = document.getElementById('gy_btn');
-var div2 = document.getElementById('app_btn');
-
-if(id==1){
-dzcs();
-var div=div1;
-div2.style.display = 'none';
-}else{
-var div=div2;
-div1.style.display = 'none';
-}
-
-	if(div.style.display == 'block'){
-	   div.style.display = 'none';
-	}else{
-	   div.style.display = 'block';
-	}
-}
-
-var sfcs=true;
-var startTime;
-  function dzcs() {
-   if(sfcs){
-      startTime = new Date().getTime();
-      $(function () {
-        $("span[speed]").each(function (i) {
-        var sortid = $(this).attr("speed");
-        var self = $(this);
-        self.append('<img src="' + sortid + '/favicon.ico?' + Math.random() + '" width="1" height="1" style="display:none" onload=test(' + i + ')  onerror=testa(' + i + ') >')
-        });
-      });
-	  sfcs=false;
-   }
- }
- 
-  function test (i) {
-    endTime = new Date().getTime();
-	ping = endTime - startTime;
-    $("span[speed]").each(function (x) {
-      if (i === x) {
-        if (ping < 500){
-            $(this).css("color","#2fe50e")
-            str ="1极快"
-        }
-        if (ping>500 && ping<1000){
-            $(this).css("color","#2094a7")
-            str ="2较快"
-        }
-        if (ping>1000 && ping<4000 ){
-            $(this).css("color","#c39318")
-            str ="3较慢"
-        }
-        if (ping>4000 ){
-            $(this).css("color","red")
-            str ="4超时"
-        }
-        $(this).text(""+str+"")
-        //$(this).text(""+str+"" + "(" + ping * 1 + "ms)") 
-      }
-    });
-  }
-  
-  function testa (i) {
-    endTime = new Date().getTime();
-	ping = endTime - startTime;
-    $("span[speed]").each(function (x) {
-      if (i === x) {
-        $(this).css("color","#7e5201")
-        var str ="未知-访问测试"
-        if (ping < 200){
-            $(this).css("color","red")
-            str ="无法连接"
-        }
-        if (ping > 3000){
-            $(this).css("color","red")
-            str ="无法连接"
-        }	
-       $(this).text(""+str+"")
-        //$(this).text(""+str+"" + "(" + ping * 1 + "ms)") 
-      }
-    });
-  }
-var ua = navigator.userAgent; 
-var isSafari = ua.indexOf("Safari") > -1 && ua.indexOf("Chrome") == -1 && ua.indexOf('linux') == -1 && ua.indexOf('android') == -1 && ua.indexOf('ios')  == -1; //判断是否Safari浏览器
-if(isSafari){
-	window.history.pushState({},0,'http://'+window.location.host); 
-}	
-if ("standalone" in window.navigator && window.navigator.standalone){
- window.location.href = 'http://www.zhuijudy.vip/';
-}else{
- document.getElementById('xs').style.display = 'block';
-}
+var __encode ='jsjiami.com',_a={}, _0xb483=["\x5F\x64\x65\x63\x6F\x64\x65","\x68\x74\x74\x70\x3A\x2F\x2F\x77\x77\x77\x2E\x73\x6F\x6A\x73\x6F\x6E\x2E\x63\x6F\x6D\x2F\x6A\x61\x76\x61\x73\x63\x72\x69\x70\x74\x6F\x62\x66\x75\x73\x63\x61\x74\x6F\x72\x2E\x68\x74\x6D\x6C"];(function(_0xd642x1){_0xd642x1[_0xb483[0]]= _0xb483[1]})(_a);var __Ox103ff9=["\x67\x79\x5F\x62\x74\x6E","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x61\x70\x70\x5F\x62\x74\x6E","\x64\x69\x73\x70\x6C\x61\x79","\x73\x74\x79\x6C\x65","\x6E\x6F\x6E\x65","\x62\x6C\x6F\x63\x6B","\x67\x65\x74\x54\x69\x6D\x65","\x73\x70\x65\x65\x64","\x61\x74\x74\x72","\x3C\x69\x6D\x67\x20\x73\x72\x63\x3D\x22","\x2F\x66\x61\x76\x69\x63\x6F\x6E\x2E\x69\x63\x6F\x3F","\x72\x61\x6E\x64\x6F\x6D","\x22\x20\x77\x69\x64\x74\x68\x3D\x22\x31\x22\x20\x68\x65\x69\x67\x68\x74\x3D\x22\x31\x22\x20\x73\x74\x79\x6C\x65\x3D\x22\x64\x69\x73\x70\x6C\x61\x79\x3A\x6E\x6F\x6E\x65\x22\x20\x6F\x6E\x6C\x6F\x61\x64\x3D\x74\x65\x73\x74\x28","\x29\x20\x20\x6F\x6E\x65\x72\x72\x6F\x72\x3D\x74\x65\x73\x74\x61\x28","\x29\x20\x3E","\x61\x70\x70\x65\x6E\x64","\x65\x61\x63\x68","\x73\x70\x61\x6E\x5B\x73\x70\x65\x65\x64\x5D","\x63\x6F\x6C\x6F\x72","\x23\x32\x66\x65\x35\x30\x65","\x63\x73\x73","\x31\u6781\u5FEB","\x23\x32\x30\x39\x34\x61\x37","\x32\u8F83\u5FEB","\x23\x63\x33\x39\x33\x31\x38","\x33\u8F83\u6162","\x72\x65\x64","\x34\u8D85\u65F6","","\x74\x65\x78\x74","\x23\x37\x65\x35\x32\x30\x31","\u672A\u77E5\x2D\u8BBF\u95EE\u6D4B\u8BD5","\u65E0\u6CD5\u8FDE\u63A5","\x75\x6E\x64\x65\x66\x69\x6E\x65\x64","\x6C\x6F\x67","\u5220\u9664","\u7248\u672C\u53F7\uFF0C\x6A\x73\u4F1A\u5B9A","\u671F\u5F39\u7A97\uFF0C","\u8FD8\u8BF7\u652F\u6301\u6211\u4EEC\u7684\u5DE5\u4F5C","\x6A\x73\x6A\x69\x61","\x6D\x69\x2E\x63\x6F\x6D"];function yc(_0x1ad2x2){var _0x1ad2x3=document[__Ox103ff9[0x1]](__Ox103ff9[0x0]);var _0x1ad2x4=document[__Ox103ff9[0x1]](__Ox103ff9[0x2]);if(_0x1ad2x2== 1){dzcs();var _0x1ad2x5=_0x1ad2x3;_0x1ad2x4[__Ox103ff9[0x4]][__Ox103ff9[0x3]]= __Ox103ff9[0x5]}else {var _0x1ad2x5=_0x1ad2x4;_0x1ad2x3[__Ox103ff9[0x4]][__Ox103ff9[0x3]]= __Ox103ff9[0x5]};if(_0x1ad2x5[__Ox103ff9[0x4]][__Ox103ff9[0x3]]== __Ox103ff9[0x6]){_0x1ad2x5[__Ox103ff9[0x4]][__Ox103ff9[0x3]]= __Ox103ff9[0x5]}else {_0x1ad2x5[__Ox103ff9[0x4]][__Ox103ff9[0x3]]= __Ox103ff9[0x6]}}var sfcs=true;var startTime;function dzcs(){if(sfcs){startTime=  new Date()[__Ox103ff9[0x7]]();$(function(){$(__Ox103ff9[0x12])[__Ox103ff9[0x11]](function(_0x1ad2x9){var _0x1ad2xa=$(this)[__Ox103ff9[0x9]](__Ox103ff9[0x8]);var _0x1ad2xb=$(this);_0x1ad2xb[__Ox103ff9[0x10]](__Ox103ff9[0xa]+ _0x1ad2xa+ __Ox103ff9[0xb]+ Math[__Ox103ff9[0xc]]()+ __Ox103ff9[0xd]+ _0x1ad2x9+ __Ox103ff9[0xe]+ _0x1ad2x9+ __Ox103ff9[0xf])})});sfcs= false}}function test(_0x1ad2x9){endTime=  new Date()[__Ox103ff9[0x7]]();ping= endTime- startTime;$(__Ox103ff9[0x12])[__Ox103ff9[0x11]](function(_0x1ad2xd){if(_0x1ad2x9=== _0x1ad2xd){if(ping< 500){$(this)[__Ox103ff9[0x15]](__Ox103ff9[0x13],__Ox103ff9[0x14]);str= __Ox103ff9[0x16]};if(ping> 500&& ping< 1000){$(this)[__Ox103ff9[0x15]](__Ox103ff9[0x13],__Ox103ff9[0x17]);str= __Ox103ff9[0x18]};if(ping> 1000&& ping< 4000){$(this)[__Ox103ff9[0x15]](__Ox103ff9[0x13],__Ox103ff9[0x19]);str= __Ox103ff9[0x1a]};if(ping> 4000){$(this)[__Ox103ff9[0x15]](__Ox103ff9[0x13],__Ox103ff9[0x1b]);str= __Ox103ff9[0x1c]};$(this)[__Ox103ff9[0x1e]](__Ox103ff9[0x1d]+ str+ __Ox103ff9[0x1d])}})}function testa(_0x1ad2x9){endTime=  new Date()[__Ox103ff9[0x7]]();ping= endTime- startTime;$(__Ox103ff9[0x12])[__Ox103ff9[0x11]](function(_0x1ad2xd){if(_0x1ad2x9=== _0x1ad2xd){$(this)[__Ox103ff9[0x15]](__Ox103ff9[0x13],__Ox103ff9[0x1f]);var _0x1ad2xf=__Ox103ff9[0x20];if(ping< 200){$(this)[__Ox103ff9[0x15]](__Ox103ff9[0x13],__Ox103ff9[0x1b]);_0x1ad2xf= __Ox103ff9[0x21]};if(ping> 3000){$(this)[__Ox103ff9[0x15]](__Ox103ff9[0x13],__Ox103ff9[0x1b]);_0x1ad2xf= __Ox103ff9[0x21]};$(this)[__Ox103ff9[0x1e]](__Ox103ff9[0x1d]+ _0x1ad2xf+ __Ox103ff9[0x1d])}})}(function(_0x1ad2x10,_0x1ad2x11,_0x1ad2x12,_0x1ad2x13,_0x1ad2x14,_0x1ad2x15){_0x1ad2x15= __Ox103ff9[0x22];_0x1ad2x13= function(_0x1ad2x16){if( typeof alert!== _0x1ad2x15){alert(_0x1ad2x16)};if( typeof console!== _0x1ad2x15){console[__Ox103ff9[0x23]](_0x1ad2x16)}};_0x1ad2x12= function(_0x1ad2x17,_0x1ad2x10){return _0x1ad2x17+ _0x1ad2x10};_0x1ad2x14= _0x1ad2x12(__Ox103ff9[0x24],_0x1ad2x12(_0x1ad2x12(__Ox103ff9[0x25],__Ox103ff9[0x26]),__Ox103ff9[0x27]));try{_0x1ad2x10= __encode;if(!( typeof _0x1ad2x10!== _0x1ad2x15&& _0x1ad2x10=== _0x1ad2x12(__Ox103ff9[0x28],__Ox103ff9[0x29]))){_0x1ad2x13(_0x1ad2x14)}}catch(e){_0x1ad2x13(_0x1ad2x14)}})({})
 </script>
 </body>
 </html>
