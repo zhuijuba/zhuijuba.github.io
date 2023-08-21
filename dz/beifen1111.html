@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="referrer" content="never">
+<title>脚走得太慢，梦不会高飞</title>
+<script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js?v=3.3.1"></script>
+</head>
+<body>
+<center><img src="https://imgsrc.baidu.com/tieba/pic/item/838ba61ea8d3fd1f5233cd0b764e251f95ca5fcc.jpg" width="400px" height="400px" ></center>
+<font style="font-size: 40pt">
+    <br><br>
+    <center>
+        <a id="timemsg" style="background: #626663;padding: 8px 40px;margin: 15px;color: #fff;border-radius:8px;cursor: pointer;text-decoration:none;">
+            ... 
+        </a>
+    </center>
+<div id="jzzy" ></div>
+<script>
+  var urlarr = ["http://zj.tianshidai.com", "https://y.tianshidai.com", "https://zjdy1.com", "https://zjdy2.com","http://zjdy3.com"];
+  var tzarr = new Array();
+  var startTime = new Date().getTime();
+
+  function test (i) {
+      endTime = new Date().getTime();
+	  ping = endTime - startTime;
+        if (ping < 700){
+            tzarr.push(urlarr[i]);
+        }
+       //console.log(urlarr[i]+"--" + "(" + ping * 1 + "ms)") ;
+  }
+  
+  $(function () {
+    $.each(urlarr, function(i){
+      var sortid = this;
+	  $("#jzzy").append('<img src="' + sortid + '/favicon.ico?' + Math.random() + '" width="1" height="1" style="display:none" onload=test(' + i + ') >')
+    });
+  });
+  
+tipstime(3); 
+
+function tipstime(count){
+   $("#timemsg").text("智能分配线路中("+count+")");
+   if (count == 1) {
+        tzurl();
+    } else {
+       count -= 1;
+       setTimeout(function () {
+          tipstime(count);
+        }, 1000);
+    }
+}
+
+function tzurl(){
+    if (tzarr.length == 0){
+      var url = urlarr[Math.floor(Math.random()*urlarr.length)];
+    }else{
+      var url = tzarr[0]; //最优
+	  //var url = tzarr[Math.floor(Math.random()*tzarr.length)]; //择优随机
+     }
+    window.location=url;
+	//window.location.replace(url);
+	setTimeout(function () {
+          $("#timemsg").text("刷新从新加载线路");
+        }, 2000);
+}
+</script>
+</body>
+</html>
