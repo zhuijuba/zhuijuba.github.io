@@ -17,7 +17,8 @@
     </center>
 <div id="jzzy" ></div>
 <script>
-  var urlarr = ["http://zj.tianshidai.com", "https://y.tianshidai.com", "https://zjdy1.com", "https://zjdy2.com","http://zjdy3.com"];
+  var randomNumber = Math.floor(Math.random() * (10 - 1 + 1)) + 1; //1-10 数
+  var urlarr = ["http://kp"+randomNumber+".tianshidai.com", "http://zj"+randomNumber+".tianshidai.com", "https://zjdy1.com", "https://zjdy2.com","http://zjdy3.com"];
   var tzarr = new Array();
   var startTime = new Date().getTime();
 
